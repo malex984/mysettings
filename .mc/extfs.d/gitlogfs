@@ -1,0 +1,34 @@
+#!/bin/sh
+
+LANG=C
+
+changesetfs_list()
+{
+    DATE=`date +"%b %d %H:%M"`
+    GIT_DIR=`head -n1 $2`".git"
+    fname=`tail -n1 $2`
+    USER=`whoami`
+    git log --abbrev=7 --pretty="format:%at %h %an" "$fname" | while read chset
+    do
+        TIMESTAMP=`echo $chset| cut -f1 -d" "`
+        DATE=`date -d @"$TIMESTAMP" +"%b %d %H:%M"`
+        NAME=`echo $chset| cut -f2 -d" "`" "`basename $fname`
+        echo "-rw-rw-rw-   1 $USER    0 0 $DATE  $NAME"
+    done
+ 
+}
+ 
+changesetfs_copyout()
+{
+    GIT_DIR=`head -n1 $2`".git"
+    fname=`tail -n1 $2`
+    chset=`echo "$3"| cut -f 1 -d " "`
+    filecommit=`git show --raw --pretty=tformat:%h "$chset" "$fname"|grep ^:|grep ...|cut -f3 -d " "|cut -f1 -d "."`
+    git show "$filecommit" > "$4"
+}
+ 
+case "$1" in
+  list) changesetfs_list "$@"; exit ;;
+  copyout) changesetfs_copyout "$@"; exit ;;
+esac
+exit 1

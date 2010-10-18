@@ -1,0 +1,29 @@
+#!/bin/sh
+ 
+LANG=C
+umask 077
+ 
+gitfs_list()
+{
+    DATE=`date +"%b %d %H:%M"`
+    GIT_DIR="$2/.git"
+    user=`whoami`
+    git ls-files | while read fname
+    do
+        echo "-r--r--r--   1 $user     0  0 $DATE `dirname $fname`/(git) `basename $fname`"
+    done
+}
+ 
+gitfs_copyout()
+{
+ 
+    echo -e "$2" > "$4"
+    echo "$3"|sed -e s/\(git\)\ // >> "$4"
+}
+ 
+case "$1" in
+list) gitfs_list "$@" ;;
+copyout) gitfs_copyout "$@" ;;
+*) exit 1 ;;
+esac
+exit 
