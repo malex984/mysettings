@@ -1,0 +1,11 @@
+Config { font = "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "yellow"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run StdinReader ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader%}{"
+       }
+

@@ -1,0 +1,33 @@
+Config { font = "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "green"
+       , position = Bottom
+       , lowerOnStart = True
+       , commands = [ Run MultiCpu
+                          [ "-a", "l"
+                          , "-w", "4"
+                          , "-t", "<fc=#8888FF>CPU0:</fc> <total0>.<total1>.<total2>.<total3>.<total4>.<total5>.<total6>.<total7> "
+                          , "-L", "50"
+                          , "-H", "75"
+                          , "-l", "green"
+                          , "-n", "yellow"
+                          , "-h", "red"
+                          ] 10
+                    , Run Memory 
+                          [ "-a", "l"
+                          , "-w", "4"
+                          , "-t", "<fc=#8888FF>MEM:</fc> <usedratio>% (C:<cache>M, B:<buffer>M)"
+                          , "-L", "50"
+                          , "-H", "75"
+                          , "-l", "green"
+                          , "-n", "yellow"
+                          , "-h", "red"
+                          ] 10
+--                    , Run Com "uname" ["-s", "-r"] "" 36000
+                    , Run Date "%a %b %_d, %H:%M" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "}{ %multicpu% <fc=#555555>|</fc> %memory% <fc=#555555>|</fc> %date% "
+       }
+
