@@ -1,0 +1,53 @@
+# Epsilon customization file. -*- Mode: Conf -*-
+# This file lists your Epsilon customizations, such as
+# setting variables, colors, bindings and so forth.
+# Epsilon reads it at startup.
+
+# Change the window-black to whatever color set you are using)
+#; &window-black color class for ruby-punctuation: yellow on black
+#; &window-black color class for ruby-regexp: [0x007FFF on 0x0]
+
+# List-customizations created these settings 08-Mar-2007 8:36:54 pm.
+
+# (bind-to-key "show-menu" "F-10")
+
+# List-customizations created these settings 12-Mar-2007 5:18:48 pm.
++-our-gui-scheme short variable: standard-gui
++mode-format char array variable: 60 " %b%E%M %d%p %s%f\z %s%f"
++record-customizations char variable: 1
++show-when-idle char array variable: 120 "\z-05l:%-03C "
++show-when-idle-column short variable: -12
++tab-size buffer short variable: 2
+# does nothing :(((
++display-look buffer short variable: borlandc 
+~reg-tab "<End>": end-of-line
+~reg-tab "<Home>": beginning-of-line
+~reg-tab "A-g": goto-line
+~reg-tab "C-Z": undo
+
++indent-with-tabs buffer char variable: 0
+(do_set_show_graphic 1)
+
+
+# (load-eel-from-path "ifdef0.e" 2)
+# (load-eel-from-path "cmake.e" 2)
+
+# (do_set_show_graphic 0)
+
+
+# not complete :(((
+(display-look-borlandc)
+
+&borlandc color class for text: [0xDEDE on 0x800000]
+&borlandc color class for text: [0xDEDE on 0x600000]
+&borlandc color class for text: [0xE5E5 on 0x600000]
+
+&borlandc color class for text: [0xDEDE on 0x800000]
+&borlandc color class for text: [0xDEDE on 0x600000]
+&borlandc color class for text: [0xE5E5 on 0x600000]
++-our-gui-scheme short variable: borlandc
+&borlandc color class for c-keyword: [0x2000FF00 on 0x600000]
+&borlandc color class for c-identifier: [0x102B7B69 on 0x600000]
+&borlandc color class for menu-highlight: [0x10800000 on 0x1C7F45]
++tab-size buffer short variable: 2
++indent-with-tabs buffer char variable: 0

@@ -1,0 +1,9 @@
+# Epsilon automatically writes this file when it exits.
+
+Epsilon.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
+Epsilon.boldfont: -misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1
+Epsilon.italicfont: -adobe-courier-medium-o-normal--15-140-75-75-m-90-iso10646-1
+Epsilon.bolditalicfont: -adobe-courier-bold-o-normal--15-140-75-75-m-90-iso10646-1
+Epsilon.fontstyles: 7
+Epsilon.fontfinderlevel: 2
+Epsilon.geometry: 212x71
