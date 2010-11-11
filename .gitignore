@@ -2,18 +2,23 @@
 *.pyc 
 .svn
 *.dl_o
+*.dl_og
 *.o
 *.o_ndebug
 *.a
 *.og
+*.op
 *.so
 *.sog
+*.sop
 *~
 *.bak
 #*
-.DS_Store
+*.dSYM/
 x86_64-Linux/
+ix86Mac-darwin/
 config.log
 config.status
 config.cache
+stamp-h
 
