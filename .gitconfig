@@ -1,20 +1,24 @@
+#### -*- Mode: tab-width: 2; indent-tabs-mode: nil -*- 
+#### Vi-modeline: vim: shiftwidth=2:tabstop=8:textwidth=0:expandtab
 [alias]
   au = add -u
   ai = add --interactive
   ap = add --patch
   ba = branch -a
   br = branch
-  ci = commit
   ca = commit -a
+  ci = commit
+  cl = clone
   co = checkout
   ed = commit --amend
   df = diff --color-words
-  di = diff --cached --color-words
+  dc = diff --color-words --cached
   lu = ls-files -u
   lm = ls-files -m
   lg = log --pretty=short --graph
   lga = log --pretty=short --graph --all
   lg1a = log --pretty=oneline --graph --all
+  lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   si = svn dcommit
   sh = show --color-words
   sr = svn rebase
@@ -25,15 +29,26 @@
   ro = rebase --onto 
   uc = reset --soft HEAD^
   ui = reset HEAD
+  who = shortlog -s --
+  incoming = !git-incoming
+  outgoing = !git-outgoing
+  addremove = !git-addremove
+  wtf = !git-wtf -a -l
+  costats = shortlog -s -n --no-merges 
+  publish = !git-publish-branch
+  mergefrom = !git-mergefrom
+  push-branch = !git-push-branch
 [user]
   email = motsak@mathematik.uni-kl.de
   name = Oleksandr Motsak
 [merge]
   conflictstyle = diff3
-[core]
-  editor = vim
+  summary = true
+#[core]
+#  editor = vim
 [color]
   ui = auto
+  wtf = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -54,3 +69,7 @@
   excludesfile = ~/.gitignore
 [branch]
   autosetupmerge = true
+[push]
+  default = matching
+#[diff "odf"]
+#  textconv=odt2txt
