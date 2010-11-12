@@ -1,3 +1,4 @@
+\#*\#
 .DS_Store
 *.pyc 
 .svn
@@ -17,6 +18,7 @@
 *.dSYM/
 x86_64-Linux/
 ix86Mac-darwin/
+config.h
 config.log
 config.status
 config.cache
@@ -32,4 +34,4 @@ stamp-h
 .xmonad/xmonad.o
 .zsh/titan
 .virtualenvs/
-
+GNUmakefile
