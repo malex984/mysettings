@@ -27,6 +27,7 @@
   ri = rebase --interactive
   rc = rebase --continue
   ro = rebase --onto 
+  ru = remote update
   uc = reset --soft HEAD^
   ui = reset HEAD
   who = shortlog -s --
