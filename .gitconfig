@@ -10,6 +10,8 @@
   ci = commit
   cl = clone
   co = checkout
+  cp = cherry-pick
+  cx = cherry-pick -x
   ed = commit --amend
   df = diff --color-words
   dc = diff --color-words --cached
@@ -40,7 +42,7 @@
   mergefrom = !git-mergefrom
   push-branch = !git-push-branch
 [user]
-  email = malex984@googlemail.com  
+  email = malex984@googlemail.com
   name = malex984
 [merge]
   conflictstyle = diff3
