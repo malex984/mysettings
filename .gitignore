@@ -44,7 +44,7 @@ stamp-h
 .virtualenvs/
 GNUmakefile
 */Makefile
-*/makefile
+makefile
 mod2.h
 misc/auxiliary.h
 MP/MP/MP_Config.h
