@@ -51,3 +51,4 @@
 &borlandc color class for menu-highlight: [0x10800000 on 0x1C7F45]
 +tab-size buffer short variable: 2
 +indent-with-tabs buffer char variable: 0
+&borlandc color class for dired-file-name: [0xFF00 on 0x600000]

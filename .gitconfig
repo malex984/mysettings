@@ -6,6 +6,7 @@
   ap = add --patch
   ba = branch -a
   br = branch
+  bl = blame --reverse
   ca = commit -a
   ci = commit
   cl = clone
@@ -13,40 +14,65 @@
   cp = cherry-pick
   cx = cherry-pick -x
   ed = commit --amend
-  df = diff --color-words
-  dc = diff --color-words --cached
+  dns = diff --name-status --patience
+  df = diff --color-words -M20 -C -B --find-copies-harder --patience 
+  dfs = diff --color-words --stat -M20 -C -B --find-copies-harder --patience 
+  dc = diff --color-words --cached --patience 
+  dcs = diff --color-words --cached --stat -M20 -C -B --find-copies-harder --patience 
+  g  = grep
+  gc  = grep --cached
+  gp  = grep
+  gpc  = grep --cached
+  ls = ls-files
   lu = ls-files -u
   lm = ls-files -m
   lg = log --pretty=short --graph
+  lgs = log --pretty=short --graph --stat
   lga = log --pretty=short --graph --all
+  lgas = log --pretty=short --graph --all --stat -M20 -C -B --find-copies-harder
   lg1a = log --pretty=oneline --graph --all
   lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  ld = log --follow --long_deleted_file
+  ldd = log --diff-filter=CDR --pretty=short --stat -M20 -C -B --find-copies-harder -- 
   si = svn dcommit
-  sh = show --color-words
+  sh = show --color-words  --patience
+  shs = show --color-words --stat -M20 -C -B  --patience
   sr = svn rebase
   st = status
+  ss = status --short
   pr = pull --rebase
+  ra = rebase --abort
   ri = rebase --interactive
   rc = rebase --continue
   ro = rebase --onto 
   ru = remote update
   uc = reset --soft HEAD^
   ui = reset HEAD
+  undo = reset --hard
   who = shortlog -s --
   incoming = !git-incoming
   outgoing = !git-outgoing
   addremove = !git-addremove
   wtf = !git-wtf -a -l
-  costats = shortlog -s -n --no-merges 
+  costats = shortlog -s -n --no-merges
+  who = shortlog -s --
   publish = !git-publish-branch
   mergefrom = !git-mergefrom
   push-branch = !git-push-branch
+  graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+#  graphviz_master = !git graphviz --first-parent master | dotty /dev/stdin #
+# add commit messages? stats?
+  k = !gitk
 [user]
   email = malex984@googlemail.com
   name = malex984
 [merge]
   conflictstyle = diff3
   summary = true
+  log = true
+  stat = true
+[rebase]
+  stat = true
 #[core]
 #  editor = vim
 [color]
@@ -74,5 +100,7 @@
   autosetupmerge = true
 [push]
   default = matching
+[diff]
+  renames = true
 #[diff "odf"]
 #  textconv=odt2txt
