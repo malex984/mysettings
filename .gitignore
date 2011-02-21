@@ -43,7 +43,7 @@ stamp-h
 .zsh/titan
 .virtualenvs/
 GNUmakefile
-*/Makefile
+Makefile
 makefile
 mod2.h
 misc/auxiliary.h
@@ -79,3 +79,6 @@ ntl/src/gen_lip_gmp_aux
 ntl/include/NTL/config.h
 ntl/include/NTL/gmp_aux.h
 ntl/include/NTL/mach_desc.h
+autom4te.cache
+.deps
+autover.h
