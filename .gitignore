@@ -81,4 +81,14 @@ ntl/include/NTL/gmp_aux.h
 ntl/include/NTL/mach_desc.h
 autom4te.cache
 .deps
+.libs
 autover.h
+
+## Unignore some directories
+#!bin/
+#!config/
+#!.data/
+#!.zsh*
+#
+## GIT stuff
+#!.gitignore
