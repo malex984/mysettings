@@ -7,18 +7,18 @@
   ba = branch -a
   br = branch
   bl = blame --reverse
-  ca = commit -a
-  ci = commit
+  ca = commit -a -v
+  ci = commit -v
   cl = clone
   co = checkout
   cp = cherry-pick
   cx = cherry-pick -x
-  ed = commit --amend
+  ed = commit --amend -v
   dns = diff --name-status --patience
   df = diff --color-words -M20 -C -B --find-copies-harder --patience 
   dfs = diff --color-words --stat -M20 -C -B --find-copies-harder --patience 
   dc = diff --color-words --cached --patience 
-  dcs = diff --color-words --cached --stat -M20 -C -B --find-copies-harder --patience 
+  dcs = diff --color-words --cached --stat -M20 -C -B --find-copies-harder --patience
   g  = grep
   gc  = grep --cached
   gp  = grep
@@ -33,21 +33,27 @@
   lg1a = log --pretty=oneline --graph --all
   lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ld = log --follow --long_deleted_file
-  ldd = log --diff-filter=CDR --pretty=short --stat -M20 -C -B --find-copies-harder -- 
+  ldd = log --diff-filter=CDR --pretty=short --stat -M20 -C -B --find-copies-harder --
+  mt = mergetool
+  pd = diff -M20 -C -B --find-copies-harder --patience -p
+  pf = format-patch --patience -M20 -C -B --find-copies-harder --summary
   si = svn dcommit
   sh = show --color-words  --patience
   shs = show --color-words --stat -M20 -C -B  --patience
   sr = svn rebase
   st = status
   ss = status --short
+  su = status -uno
   pr = pull --rebase
   ra = rebase --abort
   ri = rebase --interactive
   rc = rebase --continue
   ro = rebase --onto 
+  rst = reset HEAD
+  rp = reset --patch
+  r  = remote
   ru = remote update
   uc = reset --soft HEAD^
-  ui = reset HEAD
   undo = reset --hard
   who = shortlog -s --
   incoming = !git-incoming
@@ -60,17 +66,22 @@
   mergefrom = !git-mergefrom
   push-branch = !git-push-branch
   graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+  k = !gitk
 #  graphviz_master = !git graphviz --first-parent master | dotty /dev/stdin #
 # add commit messages? stats?
-  k = !gitk
 [user]
   email = malex984@googlemail.com
   name = malex984
 [merge]
+  tool = extMerge
+#	tool = kdiff3
   conflictstyle = diff3
   summary = true
   log = true
   stat = true
+[mergetool "extMerge"]
+  cmd = ~/bin/extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  trustExitCode = false
 [rebase]
   stat = true
 #[core]
@@ -101,6 +112,7 @@
 [push]
   default = matching
 [diff]
-  renames = true
+   renames = true
+#  external = extDiff
 #[diff "odf"]
 #  textconv=odt2txt
