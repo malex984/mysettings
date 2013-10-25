@@ -82,7 +82,7 @@
   summary = true
   log = true
   stat = true
-	verbosity = 4
+  verbosity = 4
 [mergetool "extMerge"]
   cmd = ~/bin/extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
   trustExitCode = false
@@ -90,6 +90,8 @@
   stat = true
 #[core]
 #  editor = vim
+#### http://nathanhoad.net/how-to-colours-in-git
+#### http://shallowsky.com/blog/programming/gitcolors.html
 [color]
   ui = auto
   wtf = auto
@@ -98,15 +100,27 @@
   local = yellow
   remote = green
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
+  plain = normal blink
+  meta = yellow
+  frag = magenta ul
   old = red bold
-  new = green bold
-  whitespace = red reverse
+  new = cyan bold
+  whitespace = normal red
+  commit = blue bold
+# whitespace = red reverse bold
 [color "status"]
-  added = yellow
+#  header = normal blink
+#  added = magenta yellow
+#  updated = green reverse
+#  changed = red bold
+#  untracked = blue white
+#  nobranch = red white bold
+  header = normal blink
+  added = cyan bold
+  updated = green bold
   changed = green
-  untracked = cyan
+  untracked = red dim
+  nobranch = yellow dim 
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
   autocrlf = false
