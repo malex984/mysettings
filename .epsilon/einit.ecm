@@ -52,3 +52,10 @@
 +tab-size buffer short variable: 2
 +indent-with-tabs buffer char variable: 0
 &borlandc color class for dired-file-name: [0xFF00 on 0x600000]
+(do_set_show_graphic 0)
++spell-helper-program char array variable: 256 "aspell -a"
++default-spell-options int variable: 0
++default-color-spell-word-pattern char array variable: 256 "<c:*-text|*-string><alpha>+('<alpha>+)?"
++latex-spell-ignore-pattern-prefix char array variable: 256 "\\(begin|end|label|pageref|ref|eqref|cite|nocite|usepackage|RequirePackage){"
++latex-spell-options int variable: 31
+

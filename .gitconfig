@@ -34,9 +34,12 @@
   lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   ld = log --follow --long_deleted_file
   ldd = log --diff-filter=CDR --pretty=short --stat -M20 -C -B --find-copies-harder --
+  lp = log --pretty=format:'%h on %ci by %an: \"%s\"' --abbrev-commit
   mt = mergetool
   pd = diff -M20 -C -B --find-copies-harder --patience -p
   pf = format-patch --patience -M20 -C -B --find-copies-harder --summary
+  s  = stash
+  sp = stash pop
   si = svn dcommit
   sh = show --color-words  --patience
   shs = show --color-words --stat -M20 -C -B  --patience
@@ -70,7 +73,7 @@
 #  graphviz_master = !git graphviz --first-parent master | dotty /dev/stdin #
 # add commit messages? stats?
 [user]
-  email = malex984@googlemail.com
+	email = http://goo.gl/mcpzY
   name = malex984
 [merge]
   tool = extMerge
@@ -79,6 +82,7 @@
   summary = true
   log = true
   stat = true
+	verbosity = 4
 [mergetool "extMerge"]
   cmd = ~/bin/extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
   trustExitCode = false
@@ -116,3 +120,13 @@
 #  external = extDiff
 #[diff "odf"]
 #  textconv=odt2txt
+[diff "tex"]
+	xfuncname = "^(\\\\(sub)*section\\{.*)$"
+[github]
+	user = malex984
+[filter "myid"]
+	smudge = myid
+	clean = perl -pe \"s/\\\\\\$Id[^\\\\\\$]*\\\\\\$/\\\\\\$Id\\\\\\$/\"
+[guitool "pr"]
+	cmd = git pull --rebase $ARGS
+	argprompt = yes
