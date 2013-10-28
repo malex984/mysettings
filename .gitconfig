@@ -73,11 +73,12 @@
 #  graphviz_master = !git graphviz --first-parent master | dotty /dev/stdin #
 # add commit messages? stats?
 [user]
-	email = http://goo.gl/mcpzY
+  email = http://goo.gl/mcpzY
   name = malex984
 [merge]
-  tool = extMerge
-#	tool = kdiff3
+   tool = sourcetree
+#   tool = extMerge
+#   tool = kdiff3
   conflictstyle = diff3
   summary = true
   log = true
@@ -86,6 +87,12 @@
 [mergetool "extMerge"]
   cmd = ~/bin/extMerge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
   trustExitCode = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [rebase]
   stat = true
 #[core]
